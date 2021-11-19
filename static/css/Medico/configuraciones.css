@@ -1,0 +1,93 @@
+/*----------------------------------------------------------------------------------*/
+/*--------------------------------div informacion-----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.info .busqueda{ /*diseño  de  los elementos  de  busqueda*/
+  height: 350px;
+  width: 1000px;
+  /*background-color: red;*/
+  float: left;/*formato para  aliniarlos  una caja  (div) una al  lado  del otro*/
+  margin-top: 15px;
+}
+
+
+.info .datos_personales {/*popiedad  de  los titulos y lineas  horizontales*/
+  height: 30px;
+  width: 1000px;
+  float: left;
+}
+.info .datos_contacto  {/*popiedad  de  los titulos y lineas  horizontales*/
+  height: 30px;
+  width: 1000px;
+  float: left;
+}
+
+.info  .datos_usuario{/*popiedad  de  los titulos y lineas  horizontales*/
+  height: 30px;
+  width: 1000px;
+  float: left;
+}
+/*bloque  datos personales*/
+.info .primera{ /*diseño  de  los div que guardan los label e inputs*/
+  height: 30px;
+  width: 550px;
+  /*background-color: red;*/
+  float: left;/*formato para  aliniarlos  una caja  (div) una al  lado  del otro*/
+  margin-top: 15px;
+  
+}
+
+.info .segunda{
+  height: 360px;
+  width: 550px;
+  /*background-color: rgb(255, 0, 191);*/
+  float: left;
+  margin-top: 15px;
+  
+}
+
+/*bloque  de contacto*/
+.info .tercera{
+  height: 360px;
+  width: 550px;
+  /*background-color: green;*/
+  float: left;
+  margin-top: 15px;
+
+}
+
+.info .cuarta{
+  height: 360px;
+  width: 550px;
+  /*background-color: rgb(13, 0, 128);*/
+  float: left;
+  margin-top: 15px;
+
+}
+
+.info .quinta{
+  height: 250px;
+  width: 550px;
+  /*background-color: rgb(238, 252, 52);*/
+  float: left;
+  margin-top: 15px;
+
+}
+
+.info .boton{/* botones finales*/
+  height: 200px;
+  width: 100%;
+  float: left;
+  margin-top: 15px;
+
+}
+
+/*----------------------------------------------------------------------------------*/
+/*--------------------------------div de  crear citas-----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.info .busqueda{
+  height: 200px;
+  width: 1100px;
+  /*background-color: green;*/
+  float: left;
+  margin-top: 15px;
+}

@@ -1,0 +1,113 @@
+{% extends "/Principal/base.html.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/SuperAdministrador/Administrar_cita.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Principal/table.css') }}">
+<form id="administrar_citas" name="administrar_citas"  method="post">
+
+    <div class="main_content">
+        <div class="header">Bienvenido SuperAdministrador@ {{ session['pnombre'] }}</div>  
+        <div class="info">
+            <form id="ver_citas" name="ver_citas"    method="POST"   action="{{ url_for('ver_citas_super')}}">
+            <!---bloque de  busqueda-->
+            <div class="busqueda">
+                <label for="">Vista</label>
+                <select name="opcionvista" id="opcionvista">
+                    <option value=""></option>
+                    <option value="medico">Medico</option>
+                    <option value="paciente">Paciente</option>                   
+                </select><br>
+
+                {{form.id.label}}
+                {{form.id(class="field")}}
+                <br>
+        
+                {{form.buscar(class="button")}}
+                <br><br>
+                
+            </div>
+        </form>
+            <!---bloque de  datos  personales-->
+            <br><br>
+            <div  class="datos_personales">
+                <h1>Datos  personales</h1>
+                <hr>
+            </div>
+            <div class="primera">
+                {{form.pri_nombre.label}}
+                {{form.pri_nombre(value=otro[0])}}              
+                <br>
+            
+                {{form.secu_nombre.label}}
+                {{form.secu_nombre( value=otro[1])}}
+                <br>
+            
+                {{form.tipo_docum.label}}
+                {{form.tipo_docum( value=otro[4])}}
+                <br>
+            </div>
+
+            <div  class="segunda">
+                {{form.pri_apellido.label}}
+                {{form.pri_apellido( value=otro[2])}}
+                <br>
+            
+                {{form.secu_apellido.label}}
+                {{form.secu_apellido( value=otro[3])}}
+                <br>
+
+                {{form.num_docum.label}}
+                {{form.num_docum( value=otro[5])}}
+                <br>
+            </div>
+
+
+            <!---bloque de  citas   asignadas-->
+            <div  class="citas_asignadas">
+                <h1>Citas Asignadas</h1>
+                <hr>
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Medico</th>
+                            <th>Paciente</th>
+                            <th>especialidad</th>
+                            <th>fecha</th>
+                            <th>hora</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuarios in usuarios %}
+                        <tr>
+                            <td>{{usuarios[1]}}</td>
+                            <td>{{usuarios[0]}}</td>
+                            <td>{{usuarios[2]}}</td>
+                            <td>{{usuarios[3]}}</td>
+                            <td>{{usuarios[4]}}</td>
+                            <td>
+                                <form action="{{ url_for('administrar_citas_super_eliminar')}}" method="post">
+                                    <button type="submit">eliminar</button>
+                                    <input type="hidden"  id="medico" name="medico" value="{{usuarios[1]}}">
+                                    <input type="hidden"  id="paciente" name="paciente" value="{{usuarios[0]}}">
+                                    <input type="hidden"  id="especialidad" name="especialidad" value="{{usuarios[2]}}">
+                                    <input type="hidden"  id="fecha" name="fecha" value="{{usuarios[3]}}">
+                                    <input type="hidden"  id="hora" name="hora" value="{{usuarios[4]}}">
+                                </form>
+
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
+            
+    </div>
+</form>
+    
+{% endblock %}

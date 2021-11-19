@@ -1,0 +1,60 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+ 
+<!---bloque de  busqueda-->
+<div class="busqueda">
+    <form   name="ver_citas"  id="ver_citas"   method="post"   action="{{ url_for('ver_cita_medico')}}">
+    <input type="date" name="fecha" id="fecha"  style="width: 100%;">
+    <br>
+
+    {{form.buscar(class="button")}}
+    <br><br>
+</form>
+    
+</div>
+<!---bloque de  datos  personales-->
+<div  class="historias">
+    <h1>Citas relacionadas del dia</h1>
+    <hr>
+</div>
+
+<div class="text_historias">
+    <br><br>
+    <table class="table" style="margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>Medico</th>
+                <th>Paciente</th>
+                <th>especialidad</th>
+                <th>fecha</th>
+                <th>hora</th>
+                <th>estado</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in usuarios %}
+            <tr>
+                <td>{{usuarios[1]}}</td>
+                <td>{{usuarios[0]}}</td>
+                <td>{{usuarios[2]}}</td>
+                <td>{{usuarios[3]}}</td>
+                <td>{{usuarios[4]}}</td>
+                <td><form action="{{ url_for('gestion')}}" method="post">
+                        <button  type="submit">gestionar</button>
+                        <input type="hidden" name="paciente" value="{{usuarios[0]}}">
+                        <input type="hidden" name="fecha" value="{{usuarios[3]}}">
+                        <input type="hidden" name="hora" value="{{usuarios[4]}}">
+                    </form>
+                    
+                </td>
+            </tr>
+            
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+</div>
+
+</form>
+{% endblock %}

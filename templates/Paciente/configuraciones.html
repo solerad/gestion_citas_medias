@@ -1,0 +1,111 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Paciente/configuraciones.css') }}">
+<form  id="configuracion_paciente" name="configuracion_paciente">  
+    
+    <form  action="{{ url_for('inicio_configuraciones_paciente')}}" method="POST">
+        <!---bloque de  datos  personales-->
+        <br> 
+        <div  class="titulos">
+            <h1>Datos  personales</h1>
+            <hr>
+        </div>
+
+        <div class="primera">
+
+            {{form.pri_nombre.label}}
+            {{form.pri_nombre(disabled="true", value=usuarios[0])}}
+            <br>
+        
+            {{form.secu_nombre.label}}
+            {{form.secu_nombre(disabled="true",    value=usuarios[1])}}
+            <br>
+
+            {{form.tipo_docum.label}}
+            {{form.tipo_docum(disabled="true", value=usuarios[4])}}
+            <br>
+        
+        </div>
+
+        <div  class="segunda">
+            {{form.pri_apellido.label}}
+            {{form.pri_apellido(disabled="true",   value=usuarios[2])}}
+            <br>
+        
+            {{form.secu_apellido.label}}
+            {{form.secu_apellido(disabled="true",  value=usuarios[3])}}
+            <br>
+
+            {{form.num_docum.label}}
+            {{form.num_docum(disabled="true",value=usuarios[5])}}
+            <br>
+
+        </div>
+    </form>
+
+    <!---bloque de  datos  de  contacto-->
+    <div  class="titulos">
+        <h1>Datos  de  contacto</h1>
+        <hr>
+    </div>
+    <div class="tercera">
+        {{form.genero.label}}
+        {{form.genero(value=usuarios[6])}}
+        <br>
+                                
+
+        {{form.eps.label}}
+        {{form.eps(value=usuarios[13])}}
+        <br>
+
+        {{form.correo.label}}
+        {{form.correo(value=usuarios[7])}}
+        <br>
+    </div>
+
+    <div class="cuarta">
+        {{form.telefono.label}}
+        {{form.telefono(value=usuarios[9])}}
+        <br>
+
+        {{form.direccion.label}}
+        {{form.direccion(value=usuarios[8])}}
+        <br>
+
+        {{form.regimen.label}}
+        {{form.regimen(value=usuarios[12])}}
+        <br>
+    </div>
+    <!---bloque de  datos  de   usuario-->
+    <div  class="titulos">
+        <h1>Datos  de  usuario</h1>
+        <hr>
+    </div>
+    <div  class="quinta">
+        {{form.usuario.label}}
+        {{form.usuario(value=usuarios[14])}}
+        <br>
+
+        {{form.contrasena.label}}
+        {{form.contrasena(value=usuarios[15])}}
+        <input id="oculto" name="oculto"  type="hidden" value="{{usuarios[14]}}">
+    </div>
+
+    <div class="boton">
+        <hr>
+        <form action="{{ url_for('editar_configuraciones_paciente')}}">
+        <button class="button">Editar</button>
+        </form>
+    
+        <button class="button"><a href="{{ url_for('principal_paciente')}}">Cancelar</a></button>
+    </div>
+       
+</form>
+            
+    
+{% endblock %}
+
+
+
+    
+    

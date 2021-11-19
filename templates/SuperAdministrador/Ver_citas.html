@@ -1,0 +1,113 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/SuperAdministrador/Ver_citas.css') }}">
+
+<form id="ver_citas" name="ver_citas"    method="POST"   action="{{ url_for('ver_citas_super')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Principal/table.css') }}">
+
+
+    <div class="main_content">
+        <div class="header">Bienvenido SuperAdministrador@ {{ session['pnombre'] }}</div>  
+        <div class="info">
+
+            <!---bloque de  busqueda-->
+            <div class="busqueda">
+                <label for="">Vista</label>
+                <select name="opcionvista" id="opcionvista">
+                    <option value=""></option>
+                    <option value="medico">Medico</option>
+                    <option value="paciente">Paciente</option>                   
+                </select><br>
+
+                {{form.id.label}}
+                {{form.id(class="field")}}
+                <br>
+        
+                {{form.buscar(class="button")}}
+                <br><br>
+                
+            </div>
+
+            <!---bloque de  datos  personales-->
+            <br><br>
+            <div  class="datos_personales">
+                <h1>Datos  personales</h1>
+                <hr>
+            </div>
+            <div class="primera">
+                {{form.pri_nombre.label}}
+                {{form.pri_nombre( value=otro[0])}}
+                <br>
+            
+                {{form.secu_nombre.label}}
+                {{form.secu_nombre( value=otro[1])}}
+                <br>
+            
+                <label for="">tipo  de  documento</label>
+                <select name="" id=""   >
+                    <option value=""></option>
+                    <option value="">C.C</option>
+                    <option value="">T.I</option>
+                    <option value="">Registro civil</option>
+                    <option value="">Cedula de  extranjeria</option>
+                    <option value="">Pasaporte</option>
+                </select>
+            </div>
+
+            <div  class="segunda">
+                {{form.pri_apellido.label}}
+                {{form.pri_apellido(value=otro[2])}}
+                <br>
+            
+                {{form.secu_apellido.label}}
+                {{form.secu_apellido(value=otro[3])}}
+                <br>
+
+                {{form.num_docum.label}}
+                {{form.num_docum(value=otro[5])}}
+                <br>
+            </div>
+
+
+            <!---bloque de  citas   asignadas-->
+            <div  class="citas_asignadas">
+                <h1>Citas Asignadas</h1>
+                <hr>
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Medico</th>
+                            <th>Paciente</th>
+                            <th>especialidad</th>
+                            <th>fecha</th>
+                            <th>hora</th>
+                            <th>Comentario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuarios in usuarios %}
+                        <tr>
+                            <td>{{usuarios[1]}}</td>
+                            <td>{{usuarios[0]}}</td>
+                            <td>{{usuarios[2]}}</td>
+                            <td>{{usuarios[3]}}</td>
+                            <td>{{usuarios[4]}}</td>
+                            <td>{{usuarios[5]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br><br>
+  
+            </div>
+            
+           
+        </div>
+            
+    </div>
+    
+</form>
+    
+{% endblock %}

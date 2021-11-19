@@ -1,0 +1,50 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Paciente/Ver_Citas.css') }}">
+
+<form  id="ver_cita" name="ver_cita"  action="" method="POST" >  
+   
+    <!---bloque de  busqueda-->
+    <input  class="date" type="date" name="fecha" id="fecha">
+    <!---bloque de  datos  personales-->
+    <div  class="botones">
+        <br>
+        {{form.buscar(class="button")}}
+    </div><br>
+
+    <div  class="historias">   
+        <h1>Citas relacionadas </h1>
+        <hr>
+    </div><br>
+
+    <div class="text_historias">
+        <table class="table" style="margin: 0 auto;">
+            <thead>
+                <tr>
+                    <th>Medico</th>
+                    <th>Paciente</th>
+                    <th>especialidad</th>
+                    <th>fecha</th>
+                    <th>hora</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuarios in usuarios %}
+                <tr>
+                    <td>{{usuarios[1]}}</td>
+                    <td>{{usuarios[0]}}</td>
+                    <td>{{usuarios[2]}}</td>
+                    <td>{{usuarios[3]}}</td>
+                    <td>{{usuarios[4]}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</form>
+
+    
+{% endblock %}

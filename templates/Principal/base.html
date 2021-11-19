@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Inicio</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/Principal/base.css') }}">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    </head>
+
+    <body>
+        <div class="contenedor">
+            <form action="{{ url_for('logout')}}"  name="base"  id="base"  method="post">  
+            <div class="menu">
+                <br>
+        <!--------------------------Menu  del SUPERADMINISTRADOR---------------------------------->
+                {% if   session['rol']=='superAdministrador' %}
+                <a href="{{ url_for('principal_super')}}"><h2>SuperAdmi</h2></a>    
+                <ul class="menu">
+                    <li><a href="{{ url_for('principal_super')}}"><i class="fas fa-home"></i>Home</a></li>
+
+                    <li><a href="#"><i class="fas fa-hospital-user"></i>Gestionar Pacientes</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('crear_paciente_super')}}">Crear</a></li>
+                            <li><a href="{{ url_for('administrar_paciente_super')}}">Administrar</a></li>
+                            <li><a href="{{ url_for('administrarHM_paciente_super')}}">Administrar H.M</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i  class="fas fa-address-card"></i>Gestionar Medicos</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('crear_medico_super')}}">Crear</a></li>
+                            <li><a href="{{ url_for('administrar_medico_super')}}">Administrar</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i class="fas fa-users"></i>Adminsitar Citas</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('crear_citas_supera')}}">Crear Cita</a></li>
+                            <li><a href="{{ url_for('administrar_citas_super')}}">Adminsitar Cita</a></li>
+                            <li><a href="{{ url_for('ver_citas_super')}}">Ver Citas</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="{{ url_for('evaluaciones_super')}}"><i class="fas fa-tasks"></i>Administar Evaluaciones</a></li>
+                    <br><br>
+                    <button class="sumbit"  title="Cerrar sesion"  name="Cerrar  sesion"  >  Cerrar Sesion </button>
+                </ul> 
+        <!------------------------------Menu  del PACIENTE---------------------------------------->
+                {% elif  session['rol']=='paciente' %}
+                <a href="{{ url_for('principal_paciente')}}"><h2>PACIENTE</h2></a>
+                <ul class="menu">
+                    
+                    <li><a href="{{ url_for('principal_paciente')}}"><i class="fas fa-home"></i>Principal</a></li>
+        
+                    
+                    <li><a href="#"><i class="fas fa-hospital-user"></i>Perfil</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('inicio_configuraciones_paciente')}}">Configuraciones</a></li>
+                        </ul>
+                    </li>
+        
+                    <li><a href="#"><i class="fas fa-hospital-user"></i>Historia Clinicas</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('ver_hc_paciente')}}">Ver</a></li>
+                        </ul>
+                    </li>
+        
+                    <li><a href="#"><i class="fas fa-address-card"></i>Citas / Agenda</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('crear_cita_paciente')}}">Crear citas</a></li>
+                            <li><a href="{{ url_for('ver_cita_paciente')}}">Ver citas</a></li> 
+                        </ul>
+                    </li>
+        
+                    <li><a href="{{ url_for('evaluaciones_paciente')}}"><i class="fas fa-tasks"></i>Evaluar Medico</a></li>
+                    <br><br>
+                    <button class="sumbit"  title="Cerrar sesion"  name="Cerrar  sesion"  >  Cerrar Sesion </button>
+                </ul> 
+        <!------------------------------Menu  del MEDICO------------------------------------------>
+                {% else %}
+                <a href="{{ url_for('principal_medico')}}"><h2>MEDICO</h2></a>
+                <ul class="menu">
+                    <li><a href="{{ url_for('principal_medico')}}"><i class="fas fa-home"></i>Principal</a></li>
+        
+                    
+                    <li><a href="#"><i class="fas fa-hospital-user"></i>Perfil</a>
+                        <ul class="nav">
+                            <li><a href="{{ url_for('inicio_configuraciones_medico')}}">Configuraciones</a></li>
+                        </ul>
+                    </li>
+        
+                    <li><a href="#"><i class="fas fa-hospital-user"></i>Historia Clinicas</a>
+                        <ul class="nav">
+                            
+                            <li><a href="{{ url_for('ver_hc_medico')}}">Ver</a></li>
+                        </ul>
+                    </li>
+        
+                    <li><a href="{{ url_for('ver_cita_medico')}}"><i class="fas fa-address-card"></i>Citas / Agenda</a></li>
+        
+                    <li><a href="{{ url_for('evaluaciones_medico')}}"><i class="fas fa-tasks"></i>Evaluaciones</a></li>
+                    <br><br>
+                    <button class="sumbit"  title="Cerrar sesion"  name="Cerrar  sesion"  >  Cerrar Sesion </button>
+                </ul> 
+        <!-----------------------------------------------------------------------------------------> 
+                {% endif %}
+            </div>
+            </form>
+
+            <div class="principal">
+                <div class="cabezera">!Bienvenid@¡, {{ session['pnombre'] }}       
+                
+                    <input type="text"  name=date  id="date"  disabled>
+
+                    <script>
+                        document.getElementById("date").value = new Date();
+                    </script>
+                </div>  
+                {% for  message in  get_flashed_messages() %}        
+                {{ message }}
+                {%  endfor  %}    
+                <div class="info"> {% block contenido %}   {% endblock %}</div>
+            </div>
+
+        </div>
+    </body>
+    
+</html>

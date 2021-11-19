@@ -1,0 +1,129 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/SuperAdministrador/Crear_Medico.css') }}">
+
+<form id="crear_medico" name="crear_medico" method="post"  action="{{ url_for('crear_medico_super')}}">
+
+    <div class="main_content">
+        <div class="header">Bienvenido SuperAdministrador@ {{ session['pnombre'] }}</div>  
+        {% for  message in  get_flashed_messages() %}        
+        {{ message }}
+        {%  endfor  %}
+        <div class="info">
+            
+            <!---bloque de  datos  personales-->
+            <br><br>
+            <div  class="datos_personales">
+                <h1>Datos  personales</h1>
+                <hr>
+            </div>
+            <div class="primera">
+                {{form.pri_nombre.label}}
+                {{form.pri_nombre(class="field")}}
+                <br>
+            
+                {{form.secu_nombre.label}}
+                {{form.secu_nombre(class="field")}}
+                <br>
+
+                <label for="">tipo  de  documento</label>
+                <select name="tipo_doc" id="tipo_doc">
+                    <option value=""></option>
+                    <option value="C.C">C.C</option>
+                    <option value="T.I">T.I</option>
+                    <option value="Registro civil">Registro civil</option>
+                    <option value="Cedula de  extranjeria">Cedula de  extranjeria</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
+            </div>
+
+            <div  class="segunda">
+                {{form.pri_apellido.label}}
+                {{form.pri_apellido(class="field")}}
+                <br>
+            
+                {{form.secu_apellido.label}}
+                {{form.secu_apellido(class="field")}}
+                <br>
+
+                {{form.num_docum.label}}
+                {{form.num_docum(class="field")}}
+                <br>
+            </div>
+
+
+            <!---bloque de  datos  de  contacto-->
+            <div  class="datos_contacto">
+                <h1>Datos  de  contacto</h1>
+                <hr>
+            </div>
+            
+                <div class="tercera">
+                    <p>Genero:</p>
+                    <select name="genero" id="genero" class="field">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <br>
+                                            
+    
+                    <label for="">Especialidad</label>
+                    <select name="especialidad" id="especialidad">
+                        {%  for  especialidades in  especialidades %}
+                        <option value="{{especialidades[0]}}">{{especialidades[0]}}</option>   
+                        {%  endfor  %}
+                    </select>
+                    <br>
+    
+                    {{form.correo.label}}
+                    {{form.correo(class="field")}}
+                    <br>
+                </div>
+    
+                <div class="cuarta">
+                    {{form.telefono.label}}
+                    {{form.telefono(class="field")}}
+                    <br>
+    
+                    {{form.direccion.label}}
+                    {{form.direccion(class="field")}}
+                    <br>
+    
+                    {{form.disponibilidad.label}}
+                    {{form.disponibilidad(class="field")}}
+                    <br>
+                </div>
+            
+            <!---bloque de  datos  de   usuario-->
+            <div  class="datos_usuario">
+                <h1>Datos  de  usuario</h1>
+                <hr>
+            </div>
+            <div  class="quinta">
+                {{form.usuario.label}}
+                {{form.usuario(class="field")}}
+                <br>
+
+                {{form.contrasena.label}}
+                {{form.contrasena(class="field")}}
+            </div>
+            <div  class="quinta">
+                
+                <p>perfil:</p>
+                <br>
+                <textarea name="perfil" id="perfil" cols="50" rows="10"></textarea>
+            </div>
+
+            <div class="boton">
+                <hr>
+                {{form.registrar(class="button")}}
+                <button class="button" type="submit"><a href="{{ url_for('principal_super')}}">Cancelar Operacion</a></button>
+            </div>
+        </div>
+            
+    </div>
+    
+</form>
+    
+{% endblock %}

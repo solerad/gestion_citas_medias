@@ -1,0 +1,32 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+
+<!---bloque de  evaluaciones-->
+<div  class="titulos">
+    <h1>Evaluaciones relacionadas</h1>
+    <hr>
+</div>
+
+<div class="text_historias">
+    <table class="table" style="margin: 0 auto;">
+        <thead>
+            <tr>
+                
+                <th>Paciente</th>
+                <th>Medico</th>
+                <th>Comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in usuarios %}
+            <tr>
+                <td>{{usuarios[1]}}</td>
+                <td>{{usuarios[3]}}</td>
+                <td>{{usuarios[4]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

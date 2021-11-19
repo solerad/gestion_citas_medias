@@ -1,0 +1,70 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/SuperAdministrador/Administrar_Historias.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Principal/table.css') }}">
+<form id="administrar_historias" name="administrar_historias"  method="POST"   action="{{ url_for('administrarHM_paciente_super')}}"  >
+
+    <div class="main_content">
+        <div class="header">Bienvenido SuperAdministrador@ {{ session['pnombre'] }}</div>  
+        <div class="info">
+            <!---bloque de  busqueda-->
+            <div class="busqueda">
+                {{form.id_paciente.label}}
+                {{form.id_paciente(class="field")}}
+                <br>
+        
+                {{form.buscar(class="button")}}
+                <br><br>
+            </div>
+            <!---bloque de  datos  personales-->
+            <div  class="historias">
+                <h1>Historias Clinicas</h1>
+                <hr>
+            </div>
+
+            <div class="text_historias">
+                
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Medico</th>
+                            <th>Paciente</th>
+                            <th>especialidad</th>
+                            <th>fecha</th>
+                            <th>hora</th>
+                            <th>Comentario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for usuarios in usuarios %}
+                        <tr>
+                            <td>{{usuarios[1]}}</td>
+                            <td>{{usuarios[0]}}</td>
+                            <td>{{usuarios[2]}}</td>
+                            <td>{{usuarios[3]}}</td>
+                            <td>{{usuarios[4]}}</td>
+                            <td>{{usuarios[5]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+                <br><br>
+
+            </div>
+            
+
+            
+        </div>
+        <!--div class="boton">
+            <hr>
+            {{form.eliminar(class="button")}}
+            {{form.imprimir(class="button")}}
+        </div-->
+            
+    </div>
+    
+</form>
+    
+{% endblock %}

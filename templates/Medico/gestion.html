@@ -1,0 +1,23 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+
+
+<form action="{{ url_for('reporte')}}" method="post">
+    
+    <h1>Datos  Citas</h1>
+    <hr>
+    <br>
+    <label for="">Identidicacion</label>
+    <input type="text"   name="id" id="id"  value="{{uno}}" style="width: 100%;">
+    <label for="">fecha</label>
+    <input type="text"  name="fecha" id="fecha" value="{{dos}}" style="width: 100%;">
+    <label for="">hora</label>
+    <input type="text" name="hora" id="hora"value="{{tres}}" style="width: 100%;" >
+    <br>
+    <textarea name="reporte" id="reporte" cols="140" rows="5"   style="width: 100%;"></textarea>
+    <br><br>
+    <hr>
+    <button class="button"    type="submit">Ingresar reporte</button>    
+
+</form>
+{% endblock %}

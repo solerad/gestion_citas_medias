@@ -1,0 +1,249 @@
+/*-------------------------------------------------------------------*/
+/*-----------------------------MENU----------------------------------*/
+/*-------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+  background-color: #f3f5f9;
+}
+
+.contenedor{
+  display: flex;
+  position: relative;
+}
+
+.contenedor .menu{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.contenedor .menu h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+ 
+}
+
+.contenedor .menu ul  li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+/*propiedades a   los a*/
+.contenedor .menu ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+/*propiedades a  los  submenus*/
+.nav {
+  position: absolute;
+  color: #e6e3f3;
+  display: none;
+  width: 100%;
+}
+/*hacer   visivle los submenus*/
+.contenedor .menu   li:hover .nav{
+  display: block;  
+}
+/*hacer  relativa   (no  fija)   la  posicion  de    los submenus*/
+.contenedor .menu   li  ul{
+  position: relative; 
+}
+/*tamaño  posicion  de  los iconos en el  menu*/
+.contenedor .menu ul li a .fas{
+  width: 25px;
+}
+
+/*cambio  de  cuando  pasa  el  cursor*/
+.contenedor .menu ul li ul  li:hover{
+  background-color: #e0e4e8;  
+}
+
+.contenedor .menu ul li:hover{
+  background-color: #594f8d;
+}
+
+.contenedor .menu ul li:hover a{
+  color: #fff;
+}
+
+.contenedor .menu ul li a:hover {
+  color: #fff;
+}
+
+/*Boton del menu*/
+.contenedor .menu button{  
+ /*tamaño del boton*/
+  width: 185px;
+  height: 50px;
+  /*degradado de  colores del boton*/
+  background: #e05db7;
+  background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -o-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+  /*forma ovalada del boton*/
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  /*texto del boton*/
+  color:#bdb8d7;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.contenedor .menu button:hover{
+  /*cambio  de  parametros cuando se  pasa  el  curso sobre boton*/
+  color: #ffffff;
+  background: #2079b0;
+  background-image: -webkit-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -moz-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -ms-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -o-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: linear-gradient(to bottom, #2079b0, #eb94d0); 
+}
+
+/*-----------------------------------------------------------------------*/
+/*-----------------------------CABEZERA----------------------------------*/
+/*-----------------------------------------------------------------------*/
+
+.contenedor .principal{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.cabezera{
+  padding: 42px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.cabezera input{
+float: right;
+width: 405px;
+border: none;
+background: transparent;
+}
+
+/*-----------------------------------------------------------------------*/
+/*-----------------------CONTENDEDOR  PLANTILLAS-------------------------*/
+/*-----------------------------------------------------------------------*/
+
+.contenedor  .principal .info{
+  margin: 20px;
+  width: 1100px;
+  height: 500px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.contenedor  .principal .info hr {/*diseño  de  la  linea horizontal */
+  border-top: 1px solid #8c8b8b;
+  border-bottom: 1px solid #dfcdc3;
+  font-weight: bold;}
+
+.contenedor  .principal .info input,label,select {/*diseño  de  los inpust y label del div info*/
+  font-family: 'Overpass', sans-serif;
+  color: #2c1b1b;
+  display: block;
+  width: 90%;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 5px 5px 5px 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  font-weight: bold;
+  
+}
+
+.contenedor  .principal .info select {/*diseño  de  los inpust y label del div info*/
+  width: 100%;
+}
+
+.contenedor  .principal .info input.date {/*diseño  de  los inpust y label del div info*/
+  width: 100%;
+}
+
+.contenedor  .principal .info input,select {
+  Background-color: rgb(171, 159, 216);
+}
+
+.contenedor  .principal .info .button {/**/  /*diseño  de  los botones del div info*/
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color:#2c1b1c;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  background-color: #bbe1fa;
+  margin-top: 10px;
+}
+
+.contenedor  .principal .info .button:hover { /*constraste cuando  pase el maus  por lo  botones del div info*/
+  background-color: #0f4c75;
+  color:#bbe1fa;
+}
+
+
+/*-----------------------------TABLAS------------------------------------------*/
+table {     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;    
+  margin: 45px;     
+  width: 480px; 
+  text-align: left;    
+  border-collapse: collapse; }
+
+th {     font-size: 13px;     
+  font-weight: normal;     
+  padding: 8px;     
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;    
+  border-bottom: 1px solid #fff; color: #039; }
+
+td {    padding: 8px;     
+  background: #e8edff;     
+  border-bottom: 1px solid #fff;
+  color: #669;    
+  border-top: 1px solid transparent; }
+
+tr:hover td { background: #d0dafd; 
+  color: #339; }
+/*-----------------------------FIN  TABLAS------------------------------------------*/
+
+/*-----------------------------TITULOS  Y LINEAS ----------------------------*/
+.info .titulos {
+  height: 100px;
+  width: 1100px;
+  float: left;
+}
+
+hr{ 
+  width: 1100px;
+}
+/*-----------------------------FIN  TITULOS  Y LINEAS ----------------------------*/

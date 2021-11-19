@@ -1,0 +1,47 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Paciente/Ver_HC.css') }}">
+  
+    <!---bloque de  datos  personales-->
+<div  class="historias">
+    <h1>Historias Clinicas</h1>
+    <hr>
+</div>
+<br>
+<div class="text_historias">
+    <table class="table" style="margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>Medico</th>
+                <th>Paciente</th>
+                <th>especialidad</th>
+                <th>fecha</th>
+                <th>hora</th>
+                <th>Comentario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in usuarios %}
+            <tr>
+                <td>{{usuarios[1]}}</td>
+                <td>{{usuarios[0]}}</td>
+                <td>{{usuarios[2]}}</td>
+                <td>{{usuarios[3]}}</td>
+                <td>{{usuarios[4]}}</td>
+                <td>{{usuarios[5]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
+<form  id="ver_hc" name="ver_hc">
+    <div  class="imprimir">
+        <hr>
+        {{form.imprimir(class="button")}}
+        <br><br>
+    </div>
+</form>
+
+
+{% endblock %}

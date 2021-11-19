@@ -1,0 +1,62 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+  
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Paciente/configuraciones.css') }}">
+
+    <form action="{{ url_for('evaluaciones_paciente')}}"   method="POST">
+        <div  class="titulos">
+            <br>
+            <h1>Filtro Medico segun especialidad</h1>
+            <hr>
+        </div><br>
+
+        <div class="busqueda">
+            <label for="">Especialidad</label>
+            <select name="especialidad" id="especialidad">
+                {%  for  especialidades in  especialidades %}
+                <option value="{{especialidades[0]}}">{{especialidades[0]}}</option>   
+                {%  endfor  %}
+            </select><br>
+
+            <button class="button"    type="submit">Buscar</button>
+        </div>
+
+    </form>
+
+    <form action="{{ url_for('evaluaciones_paciente_efectuar')}}" method="post">
+        <div  class="titulos">
+            <br>
+            <h1>Parametros de valoracion</h1>
+            <hr>
+        </div>
+
+        <label for="">Medico</label>
+        <select name="medico" id="medico">
+            {%  for  medicos in  medicos %}
+            <option value="{{medicos[2]}}">{{medicos[0]}}   {{medicos[0]}}</option>   
+            {%  endfor  %}
+        </select><br>
+
+        <label for="">Calificacion</label>
+        <select name="Calificacion" id="Calificacion">
+            <option value="None"></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>                   
+        </select><br>
+    
+                <!---bloque de  datos  personales-->      
+        <div class="text_historias">
+            <textarea name="comentario" id="comentario" cols="30" rows="5">escribe aqui  tu  comentario</textarea>   
+        </div>
+                
+        <div class="boton">
+            <br>
+            <button class="button">Calificar</button>
+        </div><br>
+</form>
+
+    
+{% endblock %}

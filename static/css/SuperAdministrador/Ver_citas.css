@@ -1,0 +1,150 @@
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  width: 1000px;
+  height: 500px;
+  color: #717171;
+  line-height: 25px;
+}
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+/*cuerpo  de  la  pagina*/
+
+/*bloque  busqueda*/
+
+.wrapper  .main_content .info .busqueda{ /*diseño  de  los elementos  de  busqueda*/
+  height: 350px;
+  width: 1000px;
+  /*background-color: red;*/
+  float: left;/*formato para  aliniarlos  una caja  (div) una al  lado  del otro*/
+  margin-top: 15px;
+  
+}
+
+.wrapper  .main_content .info .busqueda input{ /*diseño  de  los div que guardan los label e inputs*/
+  width: 100%;
+  
+}
+
+.wrapper  .main_content .info .busqueda select{ /*diseño  de  los div que guardan los label e inputs*/
+  width: 100%;
+  
+}
+
+
+
+/*bloque  datos*/
+
+.wrapper  .main_content .info .datos_personales {/*popiedad  de  los titulos y lineas  horizontales*/
+  height: 30px;
+  width: 1000px;
+  float: left;
+}
+.wrapper  .main_content .info .citas_asignadas {/*popiedad  de  los titulos y lineas  horizontales*/
+  height: 30px;
+  width: 1000px;
+  float: left;
+}
+
+
+/*bloque  datos personales*/
+.wrapper  .main_content .info .primera{ /*diseño  de  los div que guardan los label e inputs*/
+  height: 360px;
+  width: 500px;
+  /*background-color: red;*/
+  float: left;/*formato para  aliniarlos  una caja  (div) una al  lado  del otro*/
+  margin-top: 15px;
+  
+}
+
+
+.wrapper  .main_content .info .segunda{
+  height: 360px;
+  width: 500px;
+  /*background-color: rgb(255, 0, 191);*/
+  float: left;
+  margin-top: 15px;
+  
+}
+
+/*bloque  de contacto*/
+.wrapper  .main_content .info textarea{
+  width: 100%;
+    height: 300px;
+}
+
+
+
+.wrapper  .main_content .info .boton{/* botones finales*/
+  height: 200px;
+  width: 100%;
+  
+  float: left;
+  margin-top: 15px;
+
+}
+
+
+
+hr {/*diseño  de  la  linea horizontal */
+  border-top: 1px solid #8c8b8b;
+  border-bottom: 1px solid #dfcdc3;}
+
+
+  .wrapper  .main_content .info input,label,select {/*diseño  de  los inpust y label del div info*/
+    font-family: 'Overpass', sans-serif;
+   
+    color: #1b262c;
+    
+    display: block;
+    width: 90%;
+    height: 40px;
+    
+    margin-bottom: 5px;
+    padding: 5px 5px 5px 10px;
+    
+    box-sizing: border-box;
+    
+    border: none;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+}
+
+
+
+
+
+.wrapper  .main_content .info .button {/**/  /*diseño  de  los botones del div info*/
+  font-family: 'Overpass', sans-serif;
+  font-size: 110%;
+  color:#1b262c;
+  width: 100%;
+  height: 40px;
+  border: none;
+  
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  
+  background-color: #bbe1fa;
+  
+  margin-top: 10px;
+}
+
+.wrapper  .main_content .info .button:hover { /*constraste cuando  pase el maus  por lo  botones del div info*/
+  background-color: #0f4c75;
+  color:#bbe1fa;
+}

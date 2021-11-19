@@ -1,0 +1,146 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/SuperAdministrador/Administrar_Paciente.css') }}">
+
+
+
+    <div class="main_content">
+        <div class="header">Bienvenido SuperAdministrador@ {{ session['pnombre'] }}</div>
+        {% for  message in  get_flashed_messages() %}        
+        {{ message }}
+        {%  endfor  %}  
+        <div class="info">
+            <!---bloque de  busqueda-->
+            <form id="administrar_medico" name="administrar_medico" action="{{ url_for('administrar_paciente_super')}}" method="POST">
+            <div class="busqueda">
+                {{form.id_paciente.label}}
+                {{form.id_paciente(class="field")}}
+                <br>
+        
+                {{form.buscar(class="button")}}
+                <br><br>
+            </div>
+        </form>
+            <!---bloque de  datos  personales-->
+            <form action="{{ url_for('actualizar_PS')}}" method="POST">
+            <div  class="datos_personales">
+                <h1>Datos  personales</h1>
+                <hr>
+            </div>
+            <div class="primera">
+
+                {{form.pri_nombre.label}}
+                {{form.pri_nombre(value=usuarios[0])}}
+                <br>
+            
+                {{form.secu_nombre.label}}
+                {{form.secu_nombre(value=usuarios[1])}}
+                <br>
+            
+                <label for="">tipo  de  documento</label>
+                <select name="tdocumento" id="tdocumento">
+                    <option value=""></option>
+                    <option value="C.C">C.C</option>
+                    <option value="T.I">T.I</option>
+                    <option value="Registro civil">Registro civil</option>
+                    <option value="Cedula de  extranjeria">Cedula de  extranjeria</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
+            </div>
+
+            <div  class="segunda">
+                {{form.pri_apellido.label}}
+                {{form.pri_apellido(value=usuarios[2])}}
+                <br>
+            
+                {{form.secu_apellido.label}}
+                {{form.secu_apellido(value=usuarios[3])}}
+                <br>
+
+                {{form.num_docum.label}}
+                {{form.num_docum(value=usuarios[5])}}
+                <br>
+            </div>
+
+
+            <!---bloque de  datos  de  contacto-->
+            <div  class="datos_contacto">
+                <h1>Datos  de  contacto</h1>
+                <hr>
+            </div>
+            <div class="tercera">
+                {{form.genero.label}}
+                {{form.genero(value=usuarios[6])}}
+                <br>
+                                        
+
+                {{form.eps.label}}
+                {{form.eps(value=usuarios[12])}}
+                <br>
+
+                {{form.correo.label}}
+                {{form.correo(value=usuarios[7])}}
+                <br>
+            </div>
+
+            <div class="cuarta">
+                {{form.telefono.label}}
+                {{form.telefono(value=usuarios[9])}}
+                <br>
+
+                {{form.direccion.label}}
+                {{form.direccion(value=usuarios[8])}}
+                <br>
+
+                {{form.regimen.label}}
+                {{form.regimen(value=usuarios[11])}}
+                <br>
+            </div>
+            <!---bloque de  datos  de   usuario-->
+            <div  class="datos_usuario">
+                <h1>Datos  de  usuario</h1>
+                <hr>
+            </div>
+            <div  class="quinta">
+                {{form.usuario.label}}
+                {{form.usuario(value=usuarios[13])}}
+                <br>
+
+                {{form.contrasena.label}}
+                {{form.contrasena(type="text",value=usuarios[14])}}
+            </div>
+        
+            <div class="boton">
+                <hr>
+                
+                    <!--input type="hidden" id="oculto" name="oculto" value="{{usuarios[0]}}">
+                    <input type="hidden" id="oculto1" name="oculto1" value="{{usuarios[1]}}">
+                    <input type="hidden" id="oculto2" name="oculto2" value="{{usuarios[2]}}">
+                    <input type="hidden" id="oculto3" name="oculto3" value="{{usuarios[3]}}">
+                    <input type="hidden" id="oculto4" name="oculto4" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto5" name="oculto5" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto6" name="oculto6" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto7" name="oculto7" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto8" name="oculto8" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto9" name="oculto9" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto10" name="oculto10" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto11" name="oculto11" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto12" name="oculto12" value="{{usuarios[5]}}">
+                    <input type="hidden" id="oculto13" name="oculto13" value="{{usuarios[5]}}"-->
+            
+                {{form.editar(class="button")}}
+            </form>
+            <form action="{{ url_for('APS_eliminar')}}" method="post">
+                <input type="hidden" name="oculto" id="oculto" value="{{usuarios[5]}}">
+                <a href="{{ url_for('APS_eliminar')}}"><button type="submit"  class="button">eliminar</button></a>
+            </form>
+            <button class="button" type="submit"><a href="{{ url_for('principal_super')}}">Cancelar Operacion</a></button>
+            </div>
+       
+        </div>
+            
+    </div>
+    
+
+    
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/SuperAdministrador/Crear_Citas.css') }}">
+
+<!--form id="crear_citas" name="crear_citas"-->
+
+    <div class="main_content">
+        <div class="header">Bienvenido SuperAdministrador@ {{ session['pnombre'] }}</div>  
+        {% for  message in  get_flashed_messages() %}        
+        {{ message }}
+        {%  endfor  %}
+        <div class="info">
+            <form id="crear_citas_busqueda" name="crear_citas_busqueda" method="POST"   action="{{ url_for('crear_citas_supera')}}">
+            <!---bloque de  busqueda-->
+            <div class="busqueda">
+               
+                
+                <label for="">ID del pacienteid</label>
+                <input type="text"  id="id_paciente" name="id_paciente"></input>
+                <br>
+
+                <label for="">Especialidad</label>
+                <select name="especialidad" id="especialidad">
+                    {%  for  especialidades in  especialidades %}
+                    <option value="{{especialidades[0]}}">{{especialidades[0]}}</option>   
+                    {%  endfor  %}
+                </select>
+                <br>
+                
+                <button type="submit">Buscar</button>
+                
+               
+            </div>
+           
+            <!---bloque de  datos  personales-->
+            <div  class="busqueda">
+                <br>
+                <h1>Datos  personales</h1>
+                <hr>
+            </div>
+        
+            
+            <div class="primera">
+
+                {{form.pri_nombre.label}}
+                {{form.pri_nombre(value=usuarios[0], readonly=true)}}
+               
+                <br>
+                {{form.secu_nombre.label}}
+                {{form.secu_nombre( readonly=true, value=usuarios[1])}}
+                
+                <br>
+            
+                {{form.pri_apellido.label}}
+                {{form.pri_apellido(readonly=true, value=usuarios[2])}}
+                <br>
+            </div>
+        
+            <div  class='segunda'>
+                {{form.secu_apellido.label}}
+                {{form.secu_apellido( readonly=true, value=usuarios[3])}}
+                <br>
+            
+                {{form.tdocumento.label}}
+                {{form.tdocumento(readonly=true, value=usuarios[4])}}
+                <br>
+
+                {{form.ndocumento.label}}
+                {{form.ndocumento(readonly=true, value=usuarios[5])}}
+                <br>
+            </div>
+       
+        </form>
+
+        <form name="asignar" id="asignar"  action="{{ url_for('asignar_cita')}}" method="POST">
+            <!---bloque de  datos medico-->
+            <div  class="datos_medico">
+                <h1>Datos  Medico</h1>
+                <hr>
+            </div>
+            <div class="tercera">
+                <label for="">Nombre</label>
+                <select name="disponibilidad" id="disponibilidad">
+                    {%  for  medicos in  medicos %}
+                    <option value="{{medicos[4]}}">{{medicos[0]}}   {{medicos[1]}}</option>   
+                    {%  endfor  %}
+                </select><br>
+
+                <label for="">ID medico</label>
+                <select name="medico" id="medico">
+                    {%  for  medicos in  medicos %}
+                    <option value="{{medicos[2]}}">{{medicos[2]}}</option>   
+                    {%  endfor  %}
+                </select><br>
+            </div>
+
+            <div class="cuarta">
+                <label for="">Fecha</label>
+                <input type="date"  id="fecha"  name="fecha">
+                <br>
+
+                <label for="">Hora</label>
+                <select name="hora" id="hora">
+                    <option value="8:00">8:00</option>
+                    <option value="8:30">8:30</option>
+                    <option value="9:00">9:00</option>
+                    <option value="9:30">9:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                </select><br>
+                <input type="hidden" id="oculto" name="oculto" value="{{usuarios[5]}}"> 
+            </div>
+            
+            <div class="boton">
+                <hr>
+                <button type="submit">Crear</button>
+                <button class="button" type="submit"><a href="{{ url_for('principal_super')}}">Cancelar Operacion</a></button>
+                  
+            </div>
+        </div>
+        
+        </form>
+               
+        
+        
+        </div>
+            
+    </div>
+    
+
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

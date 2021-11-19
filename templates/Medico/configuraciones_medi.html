@@ -1,0 +1,106 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Medico/configuraciones.css') }}">
+
+<form action="{{ url_for('editar_configuraciones_medico')}}" method="POST">
+<!---bloque de  datos  personales-->
+    <br>
+    <div  class="titulos">
+        <br>
+        <h1>Datos  personales</h1>
+        <hr>
+    </div>
+
+    <div class="primera">
+        {{form.pri_nombre.label}}
+        {{form.pri_nombre(disabled="true", value=usuarios[0])}}
+        <br>
+
+        {{form.secu_nombre.label}}
+        {{form.secu_nombre(disabled="true", value=usuarios[1])}}
+        <br>
+
+        {{form.tipo_docum.label}}
+        {{form.tipo_docum(disabled="true", value=usuarios[4])}}
+        <br>
+    </div>
+
+    <div  class="segunda">
+        {{form.pri_apellido.label}}
+        {{form.pri_apellido(disabled="true",   value=usuarios[2])}}
+        <br>
+
+        {{form.secu_apellido.label}}
+        {{form.secu_apellido(disabled="true",   value=usuarios[3])}}
+        <br>
+
+        {{form.num_docum.label}}
+        {{form.num_docum(disabled="true",   value=usuarios[5])}}
+        <br>
+    </div>
+
+    <!---bloque de  datos  de  contacto-->
+    <div  class="titulos">
+        <br>
+        <h1>Datos  de  contacto</h1>
+        <hr>
+    </div>
+
+    <div class="tercera">
+        <label for=""  id="genero">Genero</label>
+        <select class="selectorinput"   name="genero" id="genero"   style="width: 495px;">
+            <option value=""></option>
+            <option value="masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+            <option value="Sin genero">Sin Genero</option>
+            
+        </select><br>
+
+        {{form.especialidad.label}}
+        {{form.especialidad(value=usuarios[7])}}
+        <br>
+
+        {{form.correo.label}}
+        {{form.correo(value=usuarios[8])}}
+        <br>
+    </div>
+
+    <div class="cuarta">
+        {{form.telefono.label}}
+        {{form.telefono(value=usuarios[9])}}
+        <br>
+
+        {{form.direccion.label}}
+        {{form.direccion(value=usuarios[10])}}
+        <br>
+
+        {{form.disponibilidad.label}}
+        {{form.disponibilidad(value=usuarios[11])}}
+        <br>
+    </div>
+    <!---bloque de  datos  de   usuario-->
+    <div  class="titulos">
+        <br>
+        <h1>Datos  de  usuario</h1>
+        <hr>
+    </div>
+
+    <div  class="quinta">
+        {{form.usuario.label}}
+        {{form.usuario(value=usuarios[12])}}
+        <br>
+
+        {{form.contrasena.label}}
+        {{form.contrasena(value=usuarios[13])}}
+        <br>
+    </div>
+
+    <div class="boton">
+        <hr>
+        <button type="submit"    class="button">Editar</button>
+        <button class="button"><a href="{{ url_for('principal_medico')}}">cancelar</a></button>
+    </div>
+</form>
+
+{% endblock %}

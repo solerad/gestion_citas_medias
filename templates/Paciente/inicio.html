@@ -1,0 +1,89 @@
+{% extends "/Principal/base.html" %}
+{% block contenido %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Paciente/inicio.css') }}">
+
+
+
+<form  id="inicio_paciente" name="inicio_paciente">    
+            
+            <section class="tm-mb-1" id="about">
+                <div class="tm-row tm-about-row">
+                    <div class="tm-section-1-l">
+                        <img src="static/images/2.jpg" alt="About image" class="tm-img-responsive">
+                    </div>
+                    <br><br>
+                    <article class="tm-section-1-r tm-bg-color-8">
+                        <h2 class="tm-mb-2 tm-title-color">.01 Nuestra sede</h2>
+                        <p  align="justify"> El Hospital Universitario Clínica San Rafael, una institución universitaria prestadora de servicios de salud de IV Nivel de complejidad, con más de 84 años de experiencia que respaldan su excelente labor. Es considerada una de las instituciones de salud más importantes de la zona centro oriente de la ciudad de Bogotá. Estamos renovando nuestra tecnología constantemente para estar siempre en vanguardia de los avances científicos, buscando una mejor seguridad del paciente y brindarle un servicio cada vez más humano.</p>
+                        <!--p>Nunc sed gravida elit. Curabitur rutrum elit id lobortis viverra. Fusce at libero dui.</p-->
+                        
+                    </article>
+                </div>
+            </section>
+                
+            <section class="tm-mb-1 tm-row tm-services-row" id="services">
+                <div class="tm-section-2-l">
+                    <article class="tm-bg-color-6 tm-box-pad tm-mb-1">
+                        <h2 class="tm-mb-2">.02 Horarios de visita</h2>
+                        <p>Hospitalización en piso</p>
+                        <p>Domingo a Domingo de 08:00 a.m. a 07:00 p.m.</p>
+                        
+                        <p>UCI adulto, neonatal y pediátrica</p>
+                        <p  align="justify">Domingo a Domingo 11:00 a.m. a 06:30 p.m. Se permitirá el ingreso de un acompañante en la noche de 7:00 p.m. hasta las 7:00 a.m.</p>
+                        
+                        <p>Observación de urgencias adultos</p>
+                        <p  align="justify">Domingo a Domingo de 10:00 a.m. a 11:00 a.m. y de 04:00 p.m. a 05:00 p.m.</p>
+                        
+                        <p>Observación de urgencias pediátricas</p>
+                        <p>Acompañante permanente papá o mamá (24 horas)</p>
+                    </article>
+                    <!--div class="tm-bg-color-7 tm-em-box">
+                        <p class="tm-text-color-2">Nam iaculis, urna ut laoreet aliquam, massa magna dapibus nibh, at pellentesque lectus odio non risus. Nulla ac sodales est, vel iaculis. Text #333 . BG #DDD</p>  
+                    </div-->
+                </div>
+                <div class="tm-section-2-r">
+                    <img src="static/images/comparto-image-02.jpg" alt="Services image" class="tm-img-responsive">
+                </div>
+                
+            </section>
+                
+            <section id="contact" class="tm-bg-color-5 tm-mb-3">
+                <h2 class="tm-text-white tm-contact-title">.04 Contact Us</h2>
+                <div class="tm-bg-color-white tm-contact-main">
+
+                            <p><b>¿Cómo llegar?</b></p>
+
+                            <p>El Hospital Universitario Clínica San Rafael está ubicado en el centro oriente de la ciudad, cuenta con múltiples vías de acceso haciendo que nuestros usuarios puedan llegar en diferentes rutas de cualquier zona de la capital.</p>
+                                
+                            <p><b>CARRERA 8 N° 17-45 SUR, BOGOTÁ</b></p>
+                            <p>Teléfono: 328 2300</p>
+                            
+                            <p><b>Entradas habilitadas</b></p>
+                            <p>Cra. 8 Sur - vehícular y peatonal</p>
+                            
+                            <p><b>Principales vías de acceso</b></p>
+                            <p>Av. Cdad. de Quito/Av. NQS</p>
+                            
+                            <p><b>Rutas transmilenio</b></p>
+                            <p>Estación 1 de Mayo
+                            Parada T13</p>
+                            <p class="tm-mb-0">Tel: <a href="tel:0100200990">010-020-0990</a></p>
+                            <p>Email: <a href="mailto:info@company.com">info@company.com</a></p>
+                            
+                    </div>
+                
+                </section>
+                <div class="tm-mb-4 text-center tm-social-s">
+                    <a href="https://fb.com/templatemo" class="tm-social-link"><i class="fab fa-facebook tm-social-icon"></i></a>
+                    <a href="https://instagram.com" class="tm-social-link"><i class="fab fa-instagram tm-social-icon"></i></a>
+                    <a href="https://twitter.com" class="tm-social-link"><i class="fab fa-twitter tm-social-icon"></i></a>
+                    <a href="https://youtube.com" class="tm-social-link"><i class="fab fa-youtube tm-social-icon"></i></a>
+                </div>
+                <footer class="text-center tm-mb-1">
+                    <p>Copyright &copy; 2020 Comparto Studio 
+                    
+                    - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                </footer>
+</form>
+    
+{% endblock %}

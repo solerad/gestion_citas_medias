@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+	<title>Formulario de registro</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/Principal/formulario_registro.css') }}">
+
+  <script src="nombre.js"></script>
+
+
+</head>
+		
+
+
+<body>
+  
+	<form id="formRegistro" name="formRegistro" action="{{ url_for('log')}}"  method="POST">
+
+    <h1>Datos basicos</h1>
+    <hr>
+
+		{{form.pri_nombre.label}}
+    {{form.pri_nombre(class="field")}}
+    <br><br>
+
+    {{form.secu_nombre.label}}
+    {{form.secu_nombre(class="field")}}
+    <br><br>
+
+    {{form.pri_apellido.label}}
+    {{form.pri_apellido(class="field")}}
+    <br><br>
+
+    {{form.secu_apellido.label}}
+    {{form.secu_apellido(class="field")}}
+    <br><br>
+
+    <label for="">tipo  de  documento</label>
+    <select name="tipo_doc" id="tipo_doc" class="field">
+        <option value=""></option>
+        <option value="C.C">C.C</option>
+        <option value="T.I">T.I</option>
+        <option value="Registro civil">Registro civil</option>
+        <option value="Cedula de  extranjeria">Cedula de  extranjeria</option>
+        <option value="Pasaporte">Pasaporte</option>
+    </select>
+    <br><br>
+
+    {{form.ndocumento.label}}
+    {{form.ndocumento(class="field")}}
+    
+    <p>Genero:</p>
+    <select name="genero" id="genero" class="field">
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+      <option value="Otro">Otro</option>
+    </select>
+
+    <h1>Datos de  contacto</h1>
+    <hr>
+
+    {{form.correo.label}}
+    {{form.correo(class="field", placeholder='ejemplo@ejemplo.com')}}
+    <br><br>
+
+    {{form.direccion.label}}
+    {{form.direccion(class="field", placeholder='calle 4 N 23-43 Monteria')}}
+    <br><br>
+
+    {{form.celular.label}}
+    {{form.celular(class="field", placeholder='311 111 1111')}}
+    <br><br>
+
+    {{form.telefono.label}}
+    {{form.telefono(class="field")}}
+    <br><br>
+
+
+    <h1>Datos Medicos</h1>
+    <hr>
+
+    <p>Regimen:</p>
+    <select name="regimen" id="regimen" class="field">
+      <option value="subcidiado">subcidiado</option>
+      <option value="contributivo">contributivo</option>
+    </select>
+
+    <p>EPS:</p>
+    <select name="eps" id="eps" class="field">
+      <option value="SALUD TOTAL">SALUD TOTAL</option>
+      <option value="CAPITAL SALUD">CAPITAL SALUD</option>
+      <option value="MEDIMAS">MEDIMAS</option>
+      <option value="CAPITAL SALUD">CAPITAL SALUD</option>
+      <option value="NUEVA EPS">NUEVA EPS</option>
+      <option value="CAPITAL SALUD">CAPITAL SALUD</option>
+      <option value="COMPARTA">COMPARTA</option>
+      <option value="SANITAS">SANITAS</option>
+      <option value="FAMISANAR">FAMISANAR</option>
+      <option value="MUTUALSER">MUTUALSER</option>
+    </select>
+
+    
+    <h1>Datos de sesion</h1>
+    <hr>
+
+    {{form.usuario.label}}
+    {{form.usuario(class="field", placeholder='Usuario')}}
+    <br><br>
+    
+    {{form.contrasena.label}}
+    {{form.contrasena(class="field", placeholder='********')}}
+    <br><br>   
+    
+    <!--img src="static/Images/view.png"  onmouseover="mostrarPassword()"    onmouseout="ocultarpassword()"-->
+
+    <p  class="right"> <input type="checkbox" name="verificacion" > Declaro haber leído y aceptar las condiciones     
+      generales del programa y la normativa sobre protección de datos<br><br>
+    </p>
+
+		<p class="center-content">
+      {{form.enviar(class="btn btn-green")}}
+			
+		</p>
+
+	</form>
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+/*---------------------------formato  div-------------------------------------------------------*/
+.info .primera{ /*diseño  de  los div que guardan los label e inputs*/
+  height: 360px;
+  width: 550px;
+  /*background-color: red;*/
+  float: left;/*formato para  aliniarlos  una caja  (div) una al  lado  del otro*/
+  margin-top: 15px;
+}
+
+.info .segunda{
+  height: 360px;
+  width: 550px;
+  /*background-color: rgb(255, 0, 191);*/
+  float: left;
+  margin-top: 15px;
+}
+
+/*bloque  de contacto*/
+.info .tercera{
+  height: 250px;
+  width: 550px;
+  /*background-color: green;*/
+  float: left;
+  margin-top: 15px;
+  /*background-color: red;*/
+}
+
+.info .cuarta{
+  height: 250px;
+  width: 550px;
+  /*background-color: rgb(13, 0, 128);*/
+  float: left;
+  margin-top: 15px;
+  /*background-color: rgb(255, 0, 191);*/
+}
+
+/*---------------------------formato  selct acomodado a la  vista----------------------------------*/
+
+.contenedor  .principal .info .tercera  select {/*diseño  de  los inpust y label del div info*/
+  width: 90%;
+}
+
+.contenedor  .principal .info .cuarta  select {/*diseño  de  los inpust y label del div info*/
+  width: 90%;
+}
